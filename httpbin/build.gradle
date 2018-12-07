@@ -1,0 +1,99 @@
+group 'com.test.beats'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven { url "https://mvnrepository.com/artifact/commons-io/commons-io" }
+    mavenCentral()
+    maven {
+        url 'http://central.maven.org/maven2/'
+    }
+}
+
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.22'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
+    compile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.2.0'
+    compile group: 'com.jayway.restassured', name: 'json-schema-validator', version: '2.9.0'
+    compile group: 'com.beust', name: 'jcommander', version: '1.58'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+    testCompile 'junit:junit:4.12'
+    testCompile "org.hamcrest:hamcrest-library:1.3"
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        options.bootClasspath = System.properties["java.home"] + "/lib/rt.jar" + ":" + System.properties["java.home"] + "/lib/jce.jar"
+    }
+    tasks.withType(GroovyCompile) {
+        groovyOptions.optimizationOptions.indy = true
+    }
+
+}
+
+test.onlyIf { !Boolean.getBoolean('skip.tests') }
+
+task run (type: Exec){
+    dependsOn  'build'
+    executable 'java'
+}
+
+task regressionTest (type: Test) {
+    systemProperty "beats.config.file.location", "$rootDir/"
+
+    if (System.properties['baseUrl']) {
+        systemProperty 'baseUrl', System.properties['baseUrl']
+    }
+
+    dependsOn 'cleanTest'
+    include '**/RegressionTestSuite*'
+}
+
+task selectedTest (type: Test) {
+    systemProperty "beats.config.file.location", "$rootDir/"
+
+    if (System.properties['baseUrl']) {
+        systemProperty 'baseUrl', System.properties['baseUrl']
+    }
+
+    dependsOn 'cleanTest'
+    include '**/SelectedTestSuite*'
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+        showExceptions true
+        exceptionFormat "full"
+        showCauses true
+        showStackTraces true
+
+        debug {
+            events "started", "passed", "skipped", "failed"
+            exceptionFormat "full"
+        }
+        info.events = debug.events
+        info.exceptionFormat = debug.exceptionFormat
+
+        afterSuite { desc, result ->
+            if (!desc.parent) {
+                def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+                def startItem = '|  ', endItem = '  |'
+                def repeatLength = startItem.length() + output.length() + endItem.length()
+                println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+            }
+        }
+    }
+
+    maxParallelForks = Runtime.runtime.availableProcessors()
+    reports.html.destination = file("$projectDir/reports")
+    reports.junitXml.destination = file("$projectDir/reports")
+}
+
