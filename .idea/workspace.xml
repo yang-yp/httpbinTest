@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="743b1454-5ed8-48ca-8486-92f01fee0d22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
@@ -137,13 +138,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="203" />
+          <entry key="JAVA" value="204" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="203" />
+          <entry key="java" value="204" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -158,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="361">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,8 +211,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="342">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -724,10 +725,10 @@
         <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinSendTest.java" />
         <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinPostTest.java" />
         <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinPutTest.java" />
-        <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java" />
         <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinPatchTest.java" />
         <option value="$PROJECT_DIR$/httpbin/src/test/java/suite/RegressionTestSuite.java" />
         <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java" />
+        <option value="$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java" />
       </list>
     </option>
   </component>
@@ -1046,7 +1047,7 @@
     <frame x="-8" y="-8" width="1296" height="786" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46701846" visible="true" weight="0.32924837" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46701846" visible="true" weight="0.32924837" />
       <window_info id="Structure" order="1" sideWeight="0.5306554" side_tool="true" weight="0.23366013" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1197,16 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jayway.restassured/rest-assured/2.9.0/cb860bcc2ef8df705f6e01d81f761a61e063684c/rest-assured-2.9.0-sources.jar!/com/jayway/restassured/specification/RequestSenderOptions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1121">
@@ -1267,10 +1258,20 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java">
+    <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinDeleteTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httpbin/src/test/java/apiTest/HttpbinGetTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

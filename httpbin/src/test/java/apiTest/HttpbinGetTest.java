@@ -17,7 +17,6 @@ public class HttpbinGetTest {
         JsonPath jsonPath = new JsonPath(res.asString());
         System.out.println(res.asString());
 
-        
         Assert.assertEquals("httpbin.org",jsonPath.get("headers.Host"));
     }
 }

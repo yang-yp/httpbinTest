@@ -17,6 +17,7 @@ public class HttpbinDeleteTest {
         JsonPath jsonPath = new JsonPath(res.asString());
         System.out.println(res.asString());
 
+
         Assert.assertEquals("https://httpbin.org/delete",jsonPath.get("url"));
     }
 }
